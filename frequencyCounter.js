@@ -59,5 +59,33 @@ function reSame(arr1, arr2) {
   return true;
 }
 
-console.log(reSame([1, 2, 3, 6], [4, 1, 9, 36]));
+// console.log(reSame([1, 2, 3, 6], [4, 1, 9, 36]));
 //counter1 = {1:1,2:1,3:1,6:1} counter2 = {4:1, 1:1, 9:1, 36:1}
+//anagram
+// 2 strings with same letters with no specific order
+function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  let str1Count = {};
+  let str2Count = {};
+
+  for (let val of str1) {
+    str1Count[val] = (str1Count[val] || 0) + 1;
+  }
+  for (let val of str2) {
+    str2Count[val] = (str2Count[val] || 0) + 1;
+  }
+  for (let val in str1Count) {
+    if (!(val in str2Count)) {
+      return false;
+    }
+    if (str2Count[val] !== str1Count[val]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+console.log(isAnagram('hello', 'lelho'));
