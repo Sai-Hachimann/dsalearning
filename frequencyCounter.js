@@ -88,4 +88,30 @@ function isAnagram(str1, str2) {
   return true;
 }
 
-console.log(isAnagram('hello', 'lelho'));
+// console.log(isAnagram('hello', 'lelho'));
+
+//one more approach anagram
+function anagramAlt(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  let count = {};
+
+  for (let i = 0; i < str1.length; i++) {
+    let letter = str1[i];
+    count[letter] ? (count[letter] += 1) : (count[letter] = 1);
+  }
+
+  for (let i = 0; i < str2.length; i++) {
+    let letter = str2[i];
+    console.log(count);
+    if (!count[letter]) {
+      return false;
+    } else {
+      count[letter] -= 1;
+    }
+  }
+}
+
+console.log(anagramAlt('hello', 'lelho'));
