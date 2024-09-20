@@ -56,4 +56,4 @@ function unique(arr) {
   return i + 1;
 }
 
-console.log(unique([1, 1, 1, 1, 2, 3, 6, 6, 7, 7, 7, 7, 7]));
+// console.log(unique([1, 1, 1, 1, 2, 3, 6, 6, 7, 7, 7, 7, 7]));
