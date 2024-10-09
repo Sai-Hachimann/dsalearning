@@ -44,6 +44,24 @@ function pointerSumZero(arr) {
 // space complexity = o(1)
 // console.log(pointerSumZero([-3, -2, -1, 0, 1, 2, 3]));
 
+function unsortedSumZero(arr) {
+  let sortedArr = arr.slice().sort();
+  let i = 0;
+  let j = sortedArr.length - 1;
+  while (i < j) {
+    let sum = sortedArr[i] + sortedArr[j];
+    if (sum === 0) {
+      return [sortedArr[i], sortedArr[j]];
+    } else if (sum > 0) {
+      j--;
+    } else {
+      i++;
+    }
+  }
+}
+
+// console.log(unsortedSumZero([3, 4, 1, 7, 2, 9, 0, -4, 8, 10, 11, 12]));
+
 //countUnique vals
 function unique(arr) {
   let i = 0;
@@ -57,3 +75,28 @@ function unique(arr) {
 }
 
 // console.log(unique([1, 1, 1, 1, 2, 3, 6, 6, 7, 7, 7, 7, 7]));
+function arrunique(arr) {
+  let newar = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (newar.length === 0 || arr[i] !== newar[newar.length - 1]) {
+      newar.push(arr[i]);
+    }
+  }
+  return newar.length;
+}
+
+// console.log(arrunique([1, 1, 1, 1, 2, 3, 6, 6, 7, 7, 7, 7, 7]));
+function objunique(arr) {
+  let newObj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (newObj[arr[i]]) {
+      newObj[arr[i]]++;
+    } else {
+      newObj[arr[i]] = 1;
+    }
+  }
+  let countKeys = Object.keys(newObj);
+  return countKeys.length;
+}
+
+// console.log(objunique([1, 1, 1, 1, 2, 3, 6, 6, 7, 7, 7, 7, 7]));

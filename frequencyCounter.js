@@ -34,7 +34,7 @@ function reSame(arr1, arr2) {
   let counter2 = {};
   // for loop with if condition
   for (let val of arr1) {
-    if (counter1[val]) {
+    if (counter1[val] >= 0) {
       counter1[val] += 1;
     } else {
       counter1[val] = 1;
@@ -47,19 +47,20 @@ function reSame(arr1, arr2) {
   for (let val of arr2) {
     counter2[val] = (counter2[val] || 0) + 1;
   }
+  // console.log(counter2, counter1);
   //for in loop the object created has key val pairs
   for (let key in counter1) {
     if (!(key ** 2 in counter2)) {
       return false;
     }
-    if (counter1[key ** 2] !== counter2[key]) {
+    if (counter2[key ** 2] !== counter1[key]) {
       return false;
     }
   }
   return true;
 }
 
-// console.log(reSame([1, 2, 3, 6], [4, 1, 9, 36]));
+// console.log(reSame([1, 2, 3, 6, 3], [4, 1, 9, 36, 7]));
 //counter1 = {1:1,2:1,3:1,6:1} counter2 = {4:1, 1:1, 9:1, 36:1}
 //anagram
 // 2 strings with same letters with no specific order
