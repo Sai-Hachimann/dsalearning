@@ -47,6 +47,7 @@ function reSame(arr1, arr2) {
   for (let val of arr2) {
     counter2[val] = (counter2[val] || 0) + 1;
   }
+  str;
   // console.log(counter2, counter1);
   //for in loop the object created has key val pairs
   for (let key in counter1) {
